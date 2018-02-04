@@ -1,0 +1,61 @@
+1>>
+echo Enter a five digit number:
+read n
+temp=0
+sum=0
+while [ $n -gt 0 ]
+do
+temp=$(( $n % 10 ))
+n=$(( $n / 10 ))
+sum=$(($sum + $temp ))
+done
+echo sum is $sum
+
+
+
+2>>
+echo Enter no of rows
+read n
+echo Here is the pyramid -n
+for (( i=1 ; i<=$n ; i++ ))
+do
+for (( j=1 ; j<=$i ; j++ ))
+do
+ echo -n  $j
+done
+echo " "
+done
+
+3>>
+echo Enter the first term
+read n
+a=0
+b=1
+for (( i=0 ; i<=$n ; i++ ))
+do
+c=$(( $a + $b ))
+printf "$c"
+a=$b
+b=$c
+
+4>>
+echo Enter the Cost Price:
+read cp
+echo Enter the Selling Price:
+read sp
+if [ $cp = $sp ]
+then
+echo No loss no profit
+elif [ $cp -gt $sp ]
+then
+loss=$(( $cp - $sp ))
+perl=$(( $loss * 100 ))
+loss1=$(( $perl / $cp ))
+echo Loss is $loss and its percentage is $loss1%
+elif [ $cp -lt $sp ]
+then
+profit=$(( $sp - $cp ))
+perf=$(( $profit * 100 ))
+profit1=$(( $perf / $cp ))
+echo Profit is $profit and its percentage is $profit1%
+fi
